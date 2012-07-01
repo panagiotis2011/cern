@@ -1,0 +1,27 @@
+<h2>Διαμόρφωση προφίλ</h2>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+  <%= devise_error_messages! %>
+<p><%= f.label :name, "Όνομα χρήστη" %><br />
+<%= f.text_field :name %></p>
+
+<p><%= f.label :email, "Διεύθυνση ηλεκτρονικού ταχυδρομείου" %><span>(Δεν εμφανίζεται ποτέ)</span><br />
+  <%= f.email_field :email %></p>
+
+  <div><%= f.label :password, "Κωδικός" %> <i>(Αφήστε το κενό εάν δεν θέλετε να το αλλάξετε)</i><br />
+  <%= f.password_field :password, :autocomplete => "off" %></div>
+
+  <div><%= f.label :password_confirmation, "Επιβεβαίωση κωδικού" %><br />
+  <%= f.password_field :password_confirmation %></div>
+
+  <div><%= f.label :current_password %> <i>(Απαιτείται ο τρέχων κωδικός για να εφαρμοστούν οι αλλαγές)</i><br />
+  <%= f.password_field :current_password %></div>
+
+  <div><%= f.submit "Ενημέρωση" %></div>
+<% end %>
+
+<h3>Διαγραφή λογαριασμού</h3>
+
+<p>Δεν είσαι ευχαριστημένος; <%= link_to "Διαγραφή του λογαριασμού", registration_path(resource_name), :data => { :confirm => "Είσαι σίγουρος; (Αυτή η ενέργεια δεν μπορεί να αντιστραφεί)" }, :method => :delete %>.</p>
+
+<%= link_to "Back", :back %>

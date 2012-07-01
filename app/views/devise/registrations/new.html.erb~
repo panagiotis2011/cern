@@ -1,0 +1,60 @@
+<h2>Εγγραφή χρήστη</h2>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+<p><%= f.label :name, "Όνομα χρήστη" %><br />
+<%= f.text_field :name %></p>
+
+  <div><%= f.label :email, "Διεύθυνση ηλεκτρονικού ταχυδρομείου" %><br />
+  <%= f.email_field :email %></div>
+
+  <div><%= f.label :password, "Κωδικός" %><br />
+  <%= f.password_field :password %></div>
+
+  <div><%= f.label :password_confirmation, "Επιβεβαίωση κωδικού" %><br />
+  <%= f.password_field :password_confirmation %></div>
+
+   <script type="text/javascript">
+ var RecaptchaOptions = {
+    theme : 'custom',
+    custom_theme_widget: 'recaptcha_widget',
+     tabindex : 29
+ };
+ </script>
+
+<div id="recaptcha_widget" style="display:none">
+
+   <div id="recaptcha_image"></div>
+   <div class="recaptcha_only_if_incorrect_sol" style="color:red">Λάθος παρακαλώ ξαναπροσπάθησε!</div>
+
+   <span class="recaptcha_only_if_image">Εισάγετε τις παραπάνω λέξεις:</span>
+   <span class="recaptcha_only_if_audio">Εισάγετε τα νούμερα που ακούτε:</span>
+
+   <input type="text" id="recaptcha_response_field" name="recaptcha_response_field" />
+
+   <div><a href="javascript:Recaptcha.reload()">Λήψη άλλου δοκιμαστικού CAPTCHA</a></div>
+   <div class="recaptcha_only_if_image"><a href="javascript:Recaptcha.switch_type('audio')">Λήψη ηχητικού CAPTCHA</a></div>
+   <div class="recaptcha_only_if_audio"><a href="javascript:Recaptcha.switch_type('image')">Λήψη οπτικού CAPTCHA</a></div>
+
+   <div><a href="javascript:Recaptcha.showhelp()">Βοήθεια</a></div>
+
+ </div>
+
+ <script type="text/javascript"
+    src="http://www.google.com/recaptcha/api/challenge?k=6Lch1c0SAAAAAHsxgl1RhawFT8JU3_YHXHMkAka4">
+ </script>
+ <noscript>
+   <iframe src="http://www.google.com/recaptcha/api/noscript?k=6Lch1c0SAAAAAHsxgl1RhawFT8JU3_YHXHMkAka4"
+        height="300" width="500" frameborder="0"></iframe><br>
+   <textarea name="recaptcha_challenge_field" rows="3" cols="40">
+   </textarea>
+   <input type="hidden" name="recaptcha_response_field"
+        value="manual_challenge">
+ </noscript>
+
+  <p><%= recaptcha_tags %></p>
+
+  <div><%= f.submit "Εγγραφή" %></div>
+<% end %>
+
+<%= render "devise/shared/links" %>

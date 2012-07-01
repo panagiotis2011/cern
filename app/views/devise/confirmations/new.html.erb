@@ -1,0 +1,12 @@
+<h2>Επαναποστολή οδηγιών επιβεβαίωσης</h2>
+
+<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div><%= f.label :email, "Διεύθυνση ηλεκτρονικού ταχυδρομείου" %><br />
+  <%= f.email_field :email %></div>
+
+  <div><%= f.submit "Επαναποστολή" %></div>
+<% end %>
+
+<%= render "devise/shared/links" %>

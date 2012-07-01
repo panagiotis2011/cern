@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8">
+  <title>Cern</title>
+   <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+  <![endif]-->
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+
+      <a class="brand" href="#">Ευρωπαϊκός Οργανισμός Πυρηνικών Ερευνών</a>
+      <div class="nav-collapse">
+        <ul class="nav nav-list">
+        <div class="pull-right">
+  <% if user_signed_in? %>
+    <li><i class="icon-user icon-white"></i> Έχετε συνδεθεί ως <%= current_user.email %></li>
+   <li><i class="icon-fullscreen icon-white"></i> <%= link_to "Έξοδος", destroy_user_session_path, :method => 'delete' %></li>
+  <% else %>
+   <i class="icon-pencil icon-white"></i><%= link_to "Εγγραφή", new_user_registration_path %>
+ <i class="icon-home icon-white"></i> <%= link_to "Είσοδος", new_user_session_path %>
+  <% end %>
+</div>
+ <div class="pull-left">
+     <li><i class="icon-search icon-white"></i> <%= link_to "Αναζήτηση ασκήσεων", quizzes_path %></li>
+     <li><i class="icon-book icon-white"></i> <%= link_to "Επικοινωνία" %></li>
+     <li><i class="icon-briefcase icon-white"></i> <%= link_to "Βαθμολογία" %></li>
+    <li><i class="icon-facebook icon-blue"></i> <%= link_to "Δημοσίευση στο Facebook" %></li>
+    </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+<div class="row">
+
+    <div class="span3">
+      <h3>Χρήσιμα link</h3>
+      <p>  <div><%= link_to "Online Ασκήσεις", "http://users.sch.gr/papetridis/moodle/" %></div> </p>
+      <p>  <div><%= link_to "Σελίδα Facebook", "http://www.facebook.com/eap.edu" %></div> </p>
+      <p>  <div><%= link_to "Ομάδα Facebook", "http://www.facebook.com/groups/e.ergasia/" %></div> </p>
+      <p>  <div><%= link_to "Ασκήσεις Φυσικής", "http://eclass.sch.gr" %></div> </p>
+    </div>
+
+
+    <div class="span9"><%= yield %></div>
+
+
+  </div>
+        <%= render 'layouts/flash_messages' %>
+</div>
+</div>
+ <script src="twitter-bootstrap-v2/docs/assets/js/jquery.js"></script>
+    <script src="twitter-bootstrap-v2/docs/assets/js/bootstrap-transition.js"></script>
+    <script src="twitter-bootstrap-v2/docs/assets/js/bootstrap-alert.js"></script>
+    <script src="twitter-bootstrap-v2/docs/assets/js/bootstrap-modal.js"></script>
+    <script src="twitter-bootstrap-v2/docs/assets/js/bootstrap-dropdown.js"></script>
+    <script src="twitter-bootstrap-v2/docs/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="twitter-bootstrap-v2/docs/assets/js/bootstrap-tab.js"></script>
+    <script src="twitter-bootstrap-v2/docs/assets/js/bootstrap-tooltip.js"></script>
+    <script src="twitter-bootstrap-v2/docs/assets/js/bootstrap-popover.js"></script>
+    <script src="twitter-bootstrap-v2/docs/assets/js/bootstrap-button.js"></script>
+    <script src="twitter-bootstrap-v2/docs/assets/js/bootstrap-collapse.js"></script>
+    <script src="twitter-bootstrap-v2/docs/assets/js/bootstrap-carousel.js"></script>
+    <script src="twitter-bootstrap-v2/docs/assets/js/bootstrap-typeahead.js"></script>
+
+</body>
+</html>

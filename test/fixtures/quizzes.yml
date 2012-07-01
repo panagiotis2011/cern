@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  title: MyString
+  question: MyText
+  ans1: MyText
+  ans2: MyText
+  ans3: MyText
+  ans4: MyText
+  correct: 1
+
+two:
+  user_id: 1
+  title: MyString
+  question: MyText
+  ans1: MyText
+  ans2: MyText
+  ans3: MyText
+  ans4: MyText
+  correct: 1
