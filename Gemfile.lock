@@ -146,5 +146,5 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   sqlite3
   thin
-  twitter-bootstrap-rails
+  twitter-bootstrap-rails (~> 2.0rc0)
   uglifier (>= 1.0.3)
