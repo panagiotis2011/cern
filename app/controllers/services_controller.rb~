@@ -1,0 +1,25 @@
+# encoding: utf-8
+class ServicesController < ApplicationController
+	before_filter :authenticate_user!, :except => [:create]
+
+
+	def index
+		# όλες οι υπηρεσίες αυθεντικοποίησης συνδέονται με τον φοιτητή που είναι συνδεδεμένος
+		@services = current_user.services.all
+	end
+
+
+	def destroy
+		# διαγραφή μιας υπηρεσίας αυθεντικοποίησης που είναι συνδεδεμένη με τον φοιτητή
+		@service = current_user.services.find(params[:id])
+
+		 if session[:service_id] == @service.id
+      flash[:error] = 'You are currently signed in with this account!'
+    else
+		@service.destroy
+		flash[:notice] = "Επιτυχής αποσύνδεση της υπηρεσίας από τον λογαριασμό σας."
+		end
+		redirect_to services_path
+	end
+
+	end
